@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "4101XPceUpH4IBqYjrp+zAj7dTSXUaPX+Pr9t7YfZWD3VWFN5252ZBF4PS83EcjdcYwhvV921UugKn4siylwSw==",
+  "success": true,
+  "projectFilePath": "D:\\Projets CEGEP\\Mazesweeper\\Mazesweeper.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Taechuk\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "C:\\Users\\Taechuk\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

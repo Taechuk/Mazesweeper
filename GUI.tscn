@@ -1,0 +1,161 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/HealthUI.png" type="Texture" id=1]
+[ext_resource path="res://PauseMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GUI.gd" type="Script" id=3]
+[ext_resource path="res://Time.gd" type="Script" id=4]
+[ext_resource path="res://LoseScreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://WinScreen.tscn" type="PackedScene" id=6]
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 66, 33, 11 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 66, 33, 11 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 66, 33, 11 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 55, 33, 11 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 44, 33, 11 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 33, 33, 11 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 22, 33, 11 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 11, 33, 11 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 33, 11 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "-1hp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "-2hp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "0hp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "1hp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "2hp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "3hp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "4hp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "5hp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "6hp",
+"speed": 5.0
+} ]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="WinScreen" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="LeftPadding" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+margin_right = 921.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+
+[node name="Life" type="AnimatedSprite" parent="MarginContainer/HBoxContainer/LeftPadding"]
+position = Vector2( 108.25, 549.25 )
+scale = Vector2( 4.22727, 4.22727 )
+frames = SubResource( 5 )
+animation = "-2hp"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 925.0
+margin_right = 1020.0
+margin_bottom = 600.0
+
+[node name="TopPadding" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 95.0
+
+[node name="Score" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 4.0
+margin_right = 95.0
+margin_bottom = 18.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Score : 000000"
+align = 2
+
+[node name="Time" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 22.0
+margin_right = 95.0
+margin_bottom = 36.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0:00"
+align = 2
+script = ExtResource( 4 )
+
+[node name="BottomPadding" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 95.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="RightPadding" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 1024.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="PauseMenu" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="LoseScreen" parent="." instance=ExtResource( 5 )]
+visible = false

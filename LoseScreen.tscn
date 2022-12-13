@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://LoseScreen.gd" type="Script" id=1]
+
+[node name="LoseScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 98, 53 )
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.533333, 0, 0, 0.741176 )
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+margin_left = 470.0
+margin_top = 240.0
+margin_right = 553.0
+margin_bottom = 360.0
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_right = 83.0
+margin_bottom = 48.0
+text = "You Died
+
+"
+align = 1
+
+[node name="MainMenuButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 83.0
+margin_bottom = 72.0
+text = "Main Menu"
+
+[node name="RetryButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 76.0
+margin_right = 83.0
+margin_bottom = 96.0
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 100.0
+margin_right = 83.0
+margin_bottom = 120.0
+text = "Quit"
+
+[connection signal="visibility_changed" from="." to="." method="_on_LoseScreen_visibility_changed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/RetryButton" to="." method="_on_RetryButton_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
