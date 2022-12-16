@@ -110,7 +110,7 @@ public class Player : KinematicBody2D
 		if(Position.y < -20)
 			win();
 		
-		for(int i=0;i<GetSlideCount();i++) //le check est uniquement pour les mines... oh my god c'est overingenneered c'est tellement mauvais pourquoi j'ai fait sa what the f
+		for(int i=0;i<GetSlideCount();i++) 
 		{
 			var collision = GetSlideCollision(i);
 			Vector2 coords = new Vector2(Convert.ToSingle(collision.Position.x*3.625),Convert.ToSingle(collision.Position.y*3.625));
